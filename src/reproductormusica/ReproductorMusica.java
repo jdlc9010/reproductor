@@ -26,27 +26,34 @@ public class ReproductorMusica {
         this.canciones=canciones;
         this.cancionReproduciendo=0;
         this.pausado=true;
-        int arr[canciones.length]={-1};
-        System.out.println(canciones.length);
-        for (int i=0;i<canciones.length;i++){
-          
-//          arr[i]=-1;
-          System.out.println(arr[i]);
-         //this.cancionesFavoritas[i]=-1;
-        }
-        this.cancionesFavoritas=arr;
+//        int arr[canciones.length]={-1};
+//        System.out.println(canciones.length);
+//        for (int i=0;i<canciones.length;i++){
+//          
+////          arr[i]=-1;
+//          System.out.println(arr[i]);
+//         //this.cancionesFavoritas[i]=-1;
+//        }
+//        this.cancionesFavoritas=arr;
     }
     
     public void proximaCancion(){
         //COMPLETE AQUÍ LA LÓGICA DE ESTE MÉTODO SEGÚN EL ENUNCIADO
+    cancionReproduciendo=(cancionReproduciendo+1)%canciones.length;
+    
     }
     
     public void devolverCancion(){
         //COMPLETE AQUÍ LA LÓGICA DE ESTE MÉTODO SEGÚN EL ENUNCIADO
+        cancionReproduciendo=(cancionReproduciendo +canciones.length-1)%canciones.length;
     }
     
     public void cambiarEstadoReproduccion(){
         //COMPLETE AQUÍ LA LÓGICA DE ESTE MÉTODO SEGÚN EL ENUNCIADO
+        if (pausado=true){
+            pausado=false;
+        }
+            pausado=true;  
     }
     
     //NO SE DEBE PREOCUPAR POR DESARROLLAR ESTE MÉTODO. ¡NO ELIMINARLO NI MODIFICARLO!
