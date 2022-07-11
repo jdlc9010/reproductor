@@ -48,8 +48,9 @@ public class ReproductorMusica {
         // COMPLETE AQUÍ LA LÓGICA DE ESTE MÉTODO SEGÚN EL ENUNCIADO
         if (pausado = true) {
             pausado = false;
+        }else if(pausado=false){
+            pausado=true;
         }
-        pausado = true;
     }
 
     // NO SE DEBE PREOCUPAR POR DESARROLLAR ESTE MÉTODO. ¡NO ELIMINARLO NI
