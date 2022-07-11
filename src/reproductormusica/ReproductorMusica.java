@@ -1,109 +1,114 @@
-
 package reproductormusica;
 
 public class ReproductorMusica {
-// ATRIBUTOS
-	private String canciones[];
-	private int cancionesFavoritas[];
-	private boolean pausado;
-	private int cancionReproduciendo;
+// ATRIBUTOS    
 
-	public ReproductorMusica(String[] canciones, int[] cancionesFavoritas, boolean pausado, int cancionReproduciendo) {
-		this.canciones = canciones;
-		this.cancionesFavoritas = cancionesFavoritas;
-		this.pausado = pausado;
-		this.cancionReproduciendo = cancionReproduciendo;
-	}
+    private String canciones[];
+    private int cancionesFavoritas[];
+    private boolean pausado;
+    private int cancionReproduciendo;
 
-	public ReproductorMusica() {
+    public ReproductorMusica(String[] canciones, int[] cancionesFavoritas, boolean pausado, int cancionReproduciendo) {
+        this.canciones = canciones;
+        this.cancionesFavoritas = cancionesFavoritas;
+        this.pausado = pausado;
+        this.cancionReproduciendo = cancionReproduciendo;
+    }
 
-	}
+    public ReproductorMusica() {
 
-	// MÉTODOS
-	public ReproductorMusica(String[] canciones) {
-		// COMPLETE AQUÍ LA LÓGICA DEL CONSTRUCTOR SEGÚN EL ENUNCIADO
-		this.canciones = canciones;
-		this.cancionReproduciendo = 0;
-		this.pausado = true;
-		int[] arrayInt = new int[canciones.length];
-		for (int i = 0; i < canciones.length; i++) {
-			arrayInt[i] = -1;
-			System.out.println("arrayInt: " + arrayInt[i]);
-		}
+    }
+    // MÉTODOS
 
-		this.cancionesFavoritas = arrayInt;
-		System.out.println("cancionesFavoritas: " + this.cancionesFavoritas.length);
-	}
+    public ReproductorMusica(String[] canciones) {
+        // COMPLETE AQUÍ LA LÓGICA DEL CONSTRUCTOR SEGÚN EL ENUNCIADO
+        this.canciones = canciones;
+        this.cancionReproduciendo = 0;
+        this.pausado = true;
+        int[] arrayInt = new int[canciones.length];
+        for (int i = 0; i < canciones.length; i++) {
+            arrayInt[i] = -1;
+        }
+        this.cancionesFavoritas = arrayInt;       
+    }
 
-	public void proximaCancion() {
-		// COMPLETE AQUÍ LA LÓGICA DE ESTE MÉTODO SEGÚN EL ENUNCIADO
-	}
+    public void proximaCancion() {
+        // COMPLETE AQUÍ LA LÓGICA DE ESTE MÉTODO SEGÚN EL ENUNCIADO
+        cancionReproduciendo = (cancionReproduciendo + 1) % canciones.length;
 
-	public void devolverCancion() {
-		// COMPLETE AQUÍ LA LÓGICA DE ESTE MÉTODO SEGÚN EL ENUNCIADO
-	}
+    }
 
-	public void cambiarEstadoReproduccion() {
-		// COMPLETE AQUÍ LA LÓGICA DE ESTE MÉTODO SEGÚN EL ENUNCIADO
-	}
+    public void devolverCancion() {
+        // COMPLETE AQUÍ LA LÓGICA DE ESTE MÉTODO SEGÚN EL ENUNCIADO
+        cancionReproduciendo = (cancionReproduciendo + canciones.length - 1) % canciones.length;
 
-	// NO SE DEBE PREOCUPAR POR DESARROLLAR ESTE MÉTODO. ¡NO ELIMINARLO NI
-	// MODIFICARLO!
-	public void agregarCancionesFavoritas() {
-		for (int i = 0; i < cancionesFavoritas.length; i++)
-			/*
-			 * En caso de que encuentre que cancionReproduciendo está en el banco de
-			 * cancionesFavoritas no seguimos buscando espacio libre para agregarla, y
-			 * salimos del método
-			 */
-			if (cancionesFavoritas[i] == cancionReproduciendo)
-				return;
-			// Pero si no la encontró, y además encuentra un espacio donde añadirlo, lo hace
-			else if (cancionesFavoritas[i] == -1) {
-				cancionesFavoritas[i] = cancionReproduciendo;
-				return;
-			}
-	}
+    }
 
-	public String[] getCanciones() {
-		// COMPLETE AQUÍ EL GETTER CORRESPONDIENTE
-		return this.canciones;
-	}
+    public void cambiarEstadoReproduccion() {
+        // COMPLETE AQUÍ LA LÓGICA DE ESTE MÉTODO SEGÚN EL ENUNCIADO
+        if (pausado = true) {
+            pausado = false;
+        }
+        pausado = true;
+    }
 
-	public void setCanciones(String[] canciones) {
-		// COMPLETE AQUÍ EL SETTER CORRESPONDIENTE
-		this.canciones = canciones;
-	}
+    // NO SE DEBE PREOCUPAR POR DESARROLLAR ESTE MÉTODO. ¡NO ELIMINARLO NI
+    // MODIFICARLO!
+    public void agregarCancionesFavoritas() {
+        for (int i = 0; i < cancionesFavoritas.length; i++) /*
+		* En caso de que encuentre que cancionReproduciendo está en el banco de
+		* cancionesFavoritas no seguimos buscando espacio libre para agregarla, y
+		* salimos del método
+         */ {
+            if (cancionesFavoritas[i] == cancionReproduciendo) {
+                return;
+            } // Pero si no la encontró, y además encuentra un espacio donde añadirlo, lo hace
+            else if (cancionesFavoritas[i] == -1) {
+                cancionesFavoritas[i] = cancionReproduciendo;
+                return;
+            }
+        }
+    }
 
-	public int[] getCancionesFavoritas() {
-		// COMPLETE AQUÍ EL GETTER CORRESPONDIENTE
-		return this.cancionesFavoritas;
+    public String[] getCanciones() {
+        // COMPLETE AQUÍ EL GETTER CORRESPONDIENTE
+        return this.canciones;
+    }
 
-	}
+    public void setCanciones(String[] canciones) {
+        // COMPLETE AQUÍ EL SETTER CORRESPONDIENTE
+        this.canciones = canciones;
+    }
 
-	public void setCancionesFavoritas(int[] cancionesFavoritas) {
-		// COMPLETE AQUÍ EL SETTER CORRESPONDIENTE
-		this.cancionesFavoritas = cancionesFavoritas;
-	}
+    public int[] getCancionesFavoritas() {
+        // COMPLETE AQUÍ EL GETTER CORRESPONDIENTE
+        return this.cancionesFavoritas;
 
-	public boolean isPausado() {
-		// COMPLETE AQUÍ EL GETTER CORRESPONDIENTE
-		return false;
-	}
+    }
 
-	public void setPausado(boolean pausado) {
-		// COMPLETE AQUÍ EL SETTER CORRESPONDIENTE
+    public void setCancionesFavoritas(int[] cancionesFavoritas) {
+        // COMPLETE AQUÍ EL SETTER CORRESPONDIENTE
+        this.cancionesFavoritas = cancionesFavoritas;
+    }
 
-	}
+    public boolean isPausado() {
+        // COMPLETE AQUÍ EL GETTER CORRESPONDIENTE
+        return this.pausado;
+    }
 
-	public int getCancionReproduciendo() {
-		// COMPLETE AQUÍ EL GETTER CORRESPONDIENTE
-		return this.cancionReproduciendo;
-	}
+    public void setPausado(boolean pausado) {
+        // COMPLETE AQUÍ EL SETTER CORRESPONDIENTE
+        this.pausado=pausado;
+    }
 
-	public void setCancionReproduciendo(int cancionReproduciendo) {
-		// COMPLETE AQUÍ EL SETTER CORRESPONDIENTE
-		this.cancionReproduciendo = cancionReproduciendo;
-	}
+    public int getCancionReproduciendo() {
+        // COMPLETE AQUÍ EL GETTER CORRESPONDIENTE
+        return this.cancionReproduciendo;
+    }
+
+    public void setCancionReproduciendo(int cancionReproduciendo) {
+        // COMPLETE AQUÍ EL SETTER CORRESPONDIENTE
+        this.cancionReproduciendo = cancionReproduciendo;
+    }
 
 }

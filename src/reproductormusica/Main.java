@@ -9,12 +9,12 @@ public class Main {
               "a esa",
               "algo de mi",
               "si me dejas ahora",
-              "quieres ser mi amante"
+              "quieres ser mi amante","a"
           };
           
       ReproductorMusica rp=new ReproductorMusica(cancionesEscogidas);  
-     // System.out.println("canciones favorita: "+rp.getCancionesFavoritas().length);
-      System.out.println("canciones escogidas: "+cancionesEscogidas.length);
+      
+      
     } 
 
 
